@@ -1,0 +1,489 @@
+/* --- 1. Global Stiller ve Reset --- */
+
+/* Bu kural, kutuların genişlik ve yükseklik hesaplamasını
+  daha sezgisel hale getirir. padding ve border, genişliğe
+  eklenmez, içine dahil edilir. Olmazsa olmazdır.
+*/
+* {
+    box-sizing: border-box;
+}
+
+/* Tarayıcının varsayılan body boşluklarını (margin) sıfırlar */
+body {
+   margin: 0;
+    /* YENİ FONTUMUZ: Önce Poppins'i dene, bulamazsan varsayılan sans-serif kullan */
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Resimlerin kapsayıcılarından taşmasını engeller */
+img {
+    max-width: 100%;
+    display: block; /* Resim altındaki garip boşluğu kaldırır */
+}
+/* --- 2. Layout (Yerleşim) Stilleri --- */
+
+.container {
+    width: 90%; /* İçerik, ekranın %90'ını kaplasın */
+    max-width: 1200px; /* Ama en fazla 1100px genişlesin */
+    margin: 0 auto; /* Bu sihirli kural, bloğu yatayda ortalar */
+}
+/* --- 3. Header ve Navigasyon (Menü) --- */
+header {
+    background-color: transparent; /* Varsayılan şeffaf */
+    padding: 25px 0; /* Biraz daha geniş olabilir */
+    transition: all 0.3s ease-out; /* TÜM geçişler için */
+
+    position: fixed; /* Referans site gibi üste sabitliyoruz */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Diğer her şeyin üstünde olmalı */
+
+    /* Geçiş efekti (scroll yapınca yumuşak renk değişimi için) */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+body:not(.ana-sayfa) header {
+     background-color: #ffffff !important; /* Beyaz olmaya zorla */
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Ana sayfa dışında hamburger ikonunun çubukları koyu olsun */
+body:not(.ana-sayfa) #menu-toggle span {
+    background-color: #333 !important; 
+}
+
+/* Linklerin rengi - Ana sayfada varsayılan beyaz */
+.ana-sayfa .logo,
+.ana-sayfa nav a {
+    color: #ffffff;
+}
+
+.ana-sayfa nav a:hover {
+    color: #ccc;
+}
+/* İşte sihir burada başlıyor!
+  header içindeki .container'a flex veriyoruz.
+*/
+/* HEADER SCROLL EFEKTİ (CSS) */
+
+/* Menü küçülsün, beyazlaşsın ve gölge gelsin */
+header.scrolled {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll sonrası logo ve linkler ana rengine dönsün */
+header.scrolled .logo,
+header.scrolled nav a {
+    color: #333; /* Koyu renk */
+}
+
+header.scrolled nav a:hover {
+    color:  #2c3e50;
+}
+header .container {
+    display: flex; /* İçindeki elemanları (logo ve nav) yan yana dizer */
+    justify-content: space-between; /* Aralarına boşluk koyarak iki uca yaslar */
+    align-items: center; /* Dikeyde ortalar */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none; /* Linkin altındaki çizgiyi kaldırır */
+    color: #222;
+}
+
+/* Menü linklerini yan yana dizmek için nav'a da flex veriyoruz */
+nav {
+    display: flex;
+    gap: 20px; /* Linklerin arasına 20px boşluk koyar */
+}
+
+nav a {
+    text-decoration: none; /* Linklerin altındaki çizgiyi kaldırır */
+    color: #555;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* Fareyle linkin üzerine gelince (hover) rengi değişsin */
+nav a:hover {
+    color: #2c3e50; 
+}
+/* --- 4. Genel İçerik Stilleri --- */
+main {
+    /* ... mevcut padding: 40px 0; ... */
+
+    /* Header'ın yüksekliği kadar üstten boşluk (örn: 90px) */
+    /* Bu, İÇERİK SAYFALARI (projeler, iletişim vb.) içindir */
+    padding-top: 100px; 
+}
+
+/* Ama ana sayfada .hero tam ekran olduğu için bu boşluğa gerek yok */
+.ana-sayfa main {
+    padding-top: 0;
+}
+/* Sayfa başlıkları (H2) için stil */
+h1, h2, h3, h4 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-weight: 600; /* Başlıklarımızı biraz daha kalın yapalım */
+}
+
+h1 { font-size: 42px; margin-bottom: 20px; }
+h2 { font-size: 32px; margin-bottom: 25px; }
+h3 { font-size: 24px; margin-bottom: 15px; }
+h4 { font-size: 20px; margin-bottom: 10px; }
+/* --- 5. Projeler Sayfası - Filtre Butonları --- */
+
+.filtre-butonlari {
+    display: flex; /* Butonları yan yana dizer */
+    flex-wrap: wrap; /* Küçük ekranda sığmazsa alt satıra atar */
+    gap: 10px; /* Butonların arasına boşluk koyar */
+    margin-bottom: 30px; /* Butonlar ile galeri arasına boşluk */
+}
+
+.filtre-butonlari button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Butonları oval yapar */
+    cursor: pointer; /* Fare imlecini 'el' şekline getirir */
+    
+    /* Yumuşak bir geçiş efekti */
+    transition: all 0.2s ease-in-out; 
+}
+
+/* Butonun üzerine gelince (hover) */
+.filtre-butonlari button:hover {
+    background-color: #2c3e50; /* Mavi arka plan */
+    color: #ffffff; /* Beyaz yazı */
+    border-color: #2c3e50;
+}
+/* --- 6. Projeler Sayfası - Galeri ve Kartlar --- */
+
+.proje-galerisi {
+    display: grid; /* CSS Grid'i etkinleştir */
+    
+    /* İşte sihirli responsive kod:
+      Tarayıcıya diyoruz ki: 
+      "Sığdırabildiğin kadar (auto-fit) sütun oluştur,
+       bu sütunlar en az 300px (min) olsun, 
+       artan boşluğu eşit paylaşsın (1fr - max)."
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    
+    gap: 30px; /* Izgara kutuları (kartlar) arasına boşluk */
+}
+.proje-karti {
+    background-color: #ffffff;
+    border-radius: 8px; /* Kartın köşelerini yuvarla */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Hafif gölge */
+    
+    /* Resmin, yuvarlatılmış köşelerden dışarı taşmasını engeller */
+    overflow: hidden; 
+    
+    /* Üzerine gelince animasyon için yumuşak geçiş */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Kartın üzerine gelince (hover) */
+.proje-karti:hover {
+    transform: translateY(-5px); /* Kart 5px yukarı kalksın */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12); /* Gölge artsın */
+}
+
+/* Kartın içindeki resim */
+.proje-karti img {
+    width: 100%;
+    height: 220px; /* Bütün kart resimlerinin yüksekliği aynı olsun */
+    object-fit: cover; /* Resmin oranını bozmadan alanı kapla (çok önemli!) */
+}
+
+/* Kartın içindeki başlık (H3) */
+.proje-karti h3 {
+    font-size: 20px;
+    padding: 20px; /* Başlığa iç boşluk */
+    margin: 0; /* Başlığın varsayılan margin'ini sıfırla */
+}
+/* --- 8. Ana Sayfa - Hero Alanı --- */
+
+.ana-sayfa .hero {
+    height: 100vh; /* Ekranın tamamını kapla (viewport height) */
+    background-image: url('img/e181a4581a49fa9dec972825ea0ce4e0.jpg'); /* Görseli ekle */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    
+    /* YENİ EKLENEN SATIR: İçerikleri dikeyde (alt alta) hizala */
+    flex-direction: column; 
+    
+    align-items: center; /* İçeriği dikeyde ortala */
+    justify-content: center; /* İçeriği yatayda ortala */
+    text-align: center;
+    position: relative; /* Gölgelendirme (overlay) için gerekli */
+}
+
+/* Referans sitedeki gibi görselin üstüne hafif bir karartma ekleyelim */
+.ana-sayfa .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* %50 siyah overlay */
+    z-index: 1; /* Yazıların arkasında, görselin önünde */
+}
+
+/* Yazıların (h1, p, buton) overlay'in ÖNÜNDE olmasını sağla */
+.ana-sayfa .hero h1,
+.ana-sayfa .hero p,
+.ana-sayfa .hero .ana-buton {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; /* Ana sayfa hero yazıları beyaz */
+}
+
+.ana-sayfa .hero p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* İPUCU: Daha sonra buraya bir arka plan resmi eklemek isterseniz,
+   .hero sınıfına şunları ekleyebilirsiniz:
+   
+   background-image: url('img/ana-sayfa-arkaplan.jpg');
+   background-size: cover;
+   background-position: center;
+   color: white; // (Eğer resim koyuysa yazıları beyaza çevirin)
+*/
+/* --- 9. Ana Buton (Call to Action) --- */
+
+.ana-buton {
+    display: inline-block; /* Linki blok element gibi davranan bir satıra dönüştür */
+    background-color: #2c3e50; /* Filtre butonuyla aynı mavi */
+    color: #ffffff; /* Beyaz yazı */
+    padding: 14px 28px; /* Büyük, tıklanabilir bir buton */
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    border-radius: 30px; /* Tamamen oval kenarlar */
+    
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.ana-buton:hover {
+    background-color: #0056b3; /* Hover'da koyu mavi */
+    transform: scale(1.05); /* Hover'da hafifçe büyüsün */
+}
+/* --- 10. İletişim Sayfası Formu --- */
+
+form {
+    max-width: 700px; /* Formun çok geniş olmasını engelle */
+    margin: 0 auto; /* Formu yatayda ortala */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+form p {
+    margin-bottom: 20px; /* Her form elemanı (label+input) arasına boşluk */
+}
+
+form label {
+    display: block; /* Etiketi (örn: "İsim:") input'un üstüne al */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Bütün metin giriş alanları ve textarea için ortak stil */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%; /* Bulunduğu kabı %100 doldur */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form textarea {
+    min-height: 150px; /* Mesaj kutusu biraz yüksek olsun */
+    resize: vertical; /* Sadece dikeyde yeniden boyutlandırılabilsin */
+}
+
+/* Formun "Gönder" butonu (Ana butona benzesin) */
+form button[type="submit"] {
+    display: inline-block;
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    border: none; /* Butonlarda varsayılan border'ı kaldır */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* --- 11. Footer (Yeni Çok Sütunlu) --- */
+
+footer {
+    background-color: #2c3e50; /* Koyu mavi/gri */
+    color: #ecf0f1; /* Açık gri yazı */
+    padding-top: 60px; /* Alttaki copyright haric, üstten boşluk */
+}
+
+.footer-grid {
+    display: grid;
+    /* Responsive ızgara: Sığdığı kadar sütun (en az 250px) oluştur */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px; /* Sütunlar arası boşluk */
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.footer-col p {
+    color: #bdc3c7; /* Daha yumuşak gri */
+    line-height: 1.7;
+}
+
+.footer-col ul {
+    list-style: none; /* Madde işaretlerini kaldır */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #bdc3c7;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+}
+
+/* En alttaki copyright çubuğu */
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #495b6d; /* Sütunlarla çizgiyi ayır */
+    font-size: 14px;
+    color: #95a5a6;
+}
+/* --- 12. Mobil Uyumluluk (Responsive) --- */
+
+#menu-toggle {
+    display: none; /* Varsayılan olarak (PC'de) gizli */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Menünün üstünde */
+}
+#menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Varsayılan çubuk rengi */
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Ana sayfada (şeffafken) çubukların beyaz olması */
+.ana-sayfa #menu-toggle span {
+    background-color: #ffffff;
+}
+/* Ana sayfada (scroll edince) çubukların koyu olması */
+.ana-sayfa header.scrolled #menu-toggle span {
+    background-color: #333;
+}
+
+
+/* @media sorgusu: Ekran 768px'den KÜÇÜK olduğunda bu stiller ezilir */
+@media (max-width: 768px) {
+
+    /* 1. Normal menüyü gizle */
+    header nav {
+        display: none; /* Yatay menüyü gizle */
+        position: absolute;
+        top: 100%; /* Header'ın hemen altına */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        
+        /* YENİ EKLENEN SATIR: Menüyü her şeyin önüne al (arkada kalmasın) */
+        z-index: 999;
+    }
+    
+    /* 2. Hamburger ikonu göster */
+    #menu-toggle {
+        display: block; /* Hamburger ikonu göster */
+    }
+
+    /* 3. Menü linklerini dikey yap */
+    header nav a {
+        display: block;
+        padding: 15px 20px;
+        color: #333;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    header nav a:hover {
+        background-color: #f9f9f9;
+        color: #2c3e50;
+    }
+
+    /* 4. JS ile menü açıldığında (mobil-menu-acik sınıfı gelince) */
+    header nav.mobil-menu-acik {
+        display: block; /* Gizlenen menüyü göster */
+    }
+    
+    /* İkonu 'X' e dönüştürme (isteğe bağlı ama şık) */
+    #menu-toggle.acik span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    #menu-toggle.acik span:nth-child(2) {
+        opacity: 0;
+    }
+    #menu-toggle.acik span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Diğer mobil düzenlemeler */
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    
+    .footer-grid {
+        grid-template-columns: 1fr; /* Footer sütunlarını alt alta diz */
+    }
+}
