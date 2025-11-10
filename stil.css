@@ -214,28 +214,35 @@ h4 { font-size: 20px; margin-bottom: 10px; }
     padding: 20px; /* Başlığa iç boşluk */
     margin: 0; /* Başlığın varsayılan margin'ini sıfırla */
 }
-/* --- 8. Ana Sayfa - Hero Alanı --- */
+/* --- 8. Ana Sayfa - Hero Slider (Swiper) --- */
 
-.ana-sayfa .hero {
-    height: 100vh; /* Ekranın tamamını kapla (viewport height) */
-    background-image: url('img/e181a4581a49fa9dec972825ea0ce4e0.jpg'); /* Görseli ekle */
-    background-size: cover;
-    background-position: center;
+.hero-slider {
+    width: 100%;
+    height: 100vh; /* Tüm ekranı kaplasın */
     margin: 0;
-    border-radius: 0;
-    display: flex;
-    
-    /* YENİ EKLENEN SATIR: İçerikleri dikeyde (alt alta) hizala */
-    flex-direction: column; 
-    
-    align-items: center; /* İçeriği dikeyde ortala */
-    justify-content: center; /* İçeriği yatayda ortala */
-    text-align: center;
-    position: relative; /* Gölgelendirme (overlay) için gerekli */
+    /* Header'ın (fixed) arkasında kalması için */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-/* Referans sitedeki gibi görselin üstüne hafif bir karartma ekleyelim */
-.ana-sayfa .hero::before {
+.hero-slider .swiper-slide {
+    /* Resim stilleri (HTML'de inline verdik ama garantileyelim) */
+    background-size: cover;
+    background-position: center;
+    
+    /* İçeriği (hero-content) ortalamak için Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #ffffff; /* Tüm yazılar beyaz */
+}
+
+/* Siyah overlay (gölge) katmanı */
+.hero-slider .swiper-slide::before {
     content: '';
     position: absolute;
     top: 0;
@@ -243,31 +250,58 @@ h4 { font-size: 20px; margin-bottom: 10px; }
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* %50 siyah overlay */
-    z-index: 1; /* Yazıların arkasında, görselin önünde */
+    z-index: 1; 
 }
 
-/* Yazıların (h1, p, buton) overlay'in ÖNÜNDE olmasını sağla */
-.ana-sayfa .hero h1,
-.ana-sayfa .hero p,
-.ana-sayfa .hero .ana-buton {
+/* Slaytın içeriği (yazılar/buton) overlay'in önünde olmalı */
+.hero-slider .hero-content {
     position: relative;
     z-index: 2;
-    color: #ffffff; /* Ana sayfa hero yazıları beyaz */
+    max-width: 800px; /* İçerik çok genişlemesin */
+    padding: 20px;
 }
 
-.ana-sayfa .hero p {
+.hero-slider h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hero-slider p {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
 }
 
-/* İPUCU: Daha sonra buraya bir arka plan resmi eklemek isterseniz,
-   .hero sınıfına şunları ekleyebilirsiniz:
-   
-   background-image: url('img/ana-sayfa-arkaplan.jpg');
-   background-size: cover;
-   background-position: center;
-   color: white; // (Eğer resim koyuysa yazıları beyaza çevirin)
+/* Swiper'ın İleri/Geri oklarının rengini beyaza çevirelim */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ffffff;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1;
+}
+
+
+/* Slider 100vh yer kapladığı için, "Neden Biz?" bölümü
+   artık sayfanın altına (slider'dan sonraya) gelmeli */
+.ozet-bolumu {
+    /* 100vh (slider) + 60px boşluk */
+    margin-top: calc(100vh + 60px); 
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* ÖNEMLİ: padding-top'u ana-sayfa'da sıfırlamıştık,
+   ama artık .ozet-bolumu slider'ın altında.
+   Bu kuralı güncelleyelim.
 */
+.ana-sayfa main {
+    padding-top: 0; /* Bu doğru, main en üste yapışık */
+}
 /* --- 9. Ana Buton (Call to Action) --- */
 
 .ana-buton {

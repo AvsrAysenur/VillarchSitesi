@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="tr"> <head>
-    <meta charset="UTF-8">
+<html lang="tr">
+<head> <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Villa Tasarım Stüdyosu - Ana Sayfa</title>
+    <title>VİLLARCH - Ana Sayfa</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="stil.css">
+
 </head>
 
 <body class="ana-sayfa">
     
     <header>
-        <div class="container"> <a href="index.html" class="logo">VİLLARCH</a>
+        <div class="container"> 
+            <a href="index.html" class="logo">VİLLARCH</a>
             <button id="menu-toggle">
                 <span></span>
                 <span></span>
@@ -31,51 +35,79 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Hayalinizdeki Villayı Birlikte Tasarlayalım</h1>
-            <p>Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
-            <a href="projeler.html" class="ana-buton">Projelerimizi Görün</a>
-        </section>
+        <div class="swiper hero-slider">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide" style="background-image: url('img/e181a4581a49fa9dec972825ea0ce4e0.jpg');">
+                    <div class="hero-content">
+                        <h1>Hayalinizdeki Villayı Birlikte Tasarlayalım</h1>
+                        <p>Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
+                        <a href="projeler.html" class="ana-buton">Projelerimizi Görün</a>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide" style="background-image: url('img/hero-ic-mimari.jpg');">
+                    <div class="hero-content">
+                        <h1>Yaşam Alanlarınıza Sanatsal Dokunuş</h1>
+                        <p>İç mimari ve dekorasyon çözümlerimizle tanışın.</p>
+                        <a href="hizmetler.html" class="ana-buton">Hizmetlerimiz</a>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide" style="background-image: url('img/hero-peyzaj.jpg');">
+                    <div class="hero-content">
+                        <h1>Doğayla Bütünleşen Tasarımlar</h1>
+                        <p>Eşsiz peyzaj mimarisi ile villanızı tamamlayın.</p>
+                        <a href="projeler.html" class="ana-buton">Projelerimiz</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
 
         <section class="ozet-bolumu">
-            <h2>Neden Biz?</h2>
-            <p>Çünkü biz sadece yapı değil, yaşam alanları inşa ediyoruz...</p>
-            </section>
+            <div class="container">
+                <h2>Neden Biz?</h2>
+                <p>Çünkü biz sadece yapı değil, yaşam alanları inşa ediyoruz...</p>
+            </div>
+        </section>
     </main>
 
-<footer>
-    <div class="container footer-grid">
-
-        <div class="footer-col">
-            <h3>VİLLARCH</h3>
-            <p>Hayalinizdeki villayı birlikte tasarlayalım. Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>VİLLARCH</h3>
+                <p>Hayalinizdeki villayı birlikte tasarlayalım. Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı Linkler</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="projeler.html">Projelerimiz</a></li>
+                    <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bize Ulaşın</h4>
+                <p>
+                    info@villarch.com<br>
+                    +90 544 305 33 16<br>
+                    Mimarlık Caddesi, No:1, Ankara
+                </p>
+            </div>
         </div>
-
-        <div class="footer-col">
-            <h4>Hızlı Linkler</h4>
-            <ul>
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="projeler.html">Projelerimiz</a></li>
-                <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VİLLARCH. Tüm hakları saklıdır.</p>
         </div>
+    </footer>
 
-        <div class="footer-col">
-            <h4>Bize Ulaşın</h4>
-            <p>
-                info@villarch.com<br>
-                +90 544 305 33 16<br>
-                Mimarlık Caddesi, No:1, Ankara
-            </p>
-        </div>
-
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 VİLLARCH. Tüm hakları saklıdır.</p>
-    </div>
-</footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
     <script src="script.js"></script>
-</body>
+
+    </body>
 </html>

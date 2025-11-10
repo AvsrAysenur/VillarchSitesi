@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projelerimiz - VillArch</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="stil.css">
 </head>
@@ -30,75 +33,51 @@
     </header>
 
     <main>
-        <h2>Projelerimiz</h2>
-        <p>Tamamladığımız ve devam eden villa tasarımlarımıza göz atın.</p>
+        <div class="container">
+            <h2>Projelerimiz</h2>
+            <p>Tamamladığımız ve devam eden villa tasarımlarımıza göz atın.</p>
 
-        <div class="filtre-butonlari">
-            <button data-filtre="hepsi">Hepsi</button>
-            <button data-filtre="villa-modern">Modern Villa</button>
-            <button data-filtre="villa-klasik">Klasik Villa</button>
-            <button data-filtre="ic-mimari">İç Mimari</button>
-            <button data-filtre="peyzaj">Peyzaj</button>
-        </div>
-    
-        <div class="proje-galerisi">
-            
-            <div class="proje-karti" data-kategori="villa-modern">
-                <img src="img/modern-villa-1.jpg" alt="Modern Villa">
-                <h3>Modern Sahil Villası</h3>
-            </div>
-
-            <div class="proje-karti" data-kategori="villa-klasik">
-                <img src="img/klasik-villa-1.jpg" alt="Klasik Villa">
-                <h3>Geleneksel Orman Konağı</h3>
-            </div>
-            
-            <div class="proje-karti" data-kategori="ic-mimari">
-                <img src="img/ic-mimari-salon.jpg" alt="İç Mimari Salon">
-                <h3>Lüks Salon Tasarımı</h3>
-            </div>
-            
-            <div class="proje-karti" data-kategori="peyzaj">
-                <img src="img/peyzaj-bahce.jpg" alt="Peyzaj Bahçe Tasarımı">
-                <h3>Akdeniz Bahçe Düzenlemesi</h3>
+            <div class="filtre-butonlari">
+                <button data-filtre="hepsi">Hepsi</button>
+                <button data-filtre="villa-modern">Modern Villa</button>
+                <button data-filtre="villa-klasik">Klasik Villa</button>
+                <button data-filtre="ic-mimari">İç Mimari</button>
+                <button data-filtre="peyzaj">Peyzaj</button>
             </div>
         
+            <div class="proje-galerisi">
+                
+                <div class="proje-karti" data-kategori="villa-modern">
+                    <img src="img/anasayfa.png" alt="Modern Villa">
+                    <h3>Modern Sahil Villası</h3>
+                </div>
 
-    </main>
+                <div class="proje-karti" data-kategori="villa-klasik">
+                    <img src="img/modern-villa-1.jpg.png" alt="Klasik Villa">
+                    <h3>Geleneksel Orman Konağı</h3>
+                </div>
+                
+                <div class="proje-karti" data-kategori="ic-mimari">
+                    <img src="img/ic-mimari-salon.jpg" alt="İç Mimari Salon">
+                    <h3>Lüks Salon Tasarımı</h3>
+                </div>
+                
+                <div class="proje-karti" data-kategori="peyzaj">
+                    <img src="img/peyzaj-bahce.jpg" alt="Peyzaj Bahçe Tasarımı">
+                    <h3>Akdeniz Bahçe Düzenlemesi</h3>
+                </div>
+            </div>
+        </div> </main>
 
     <footer>
-    <div class="container footer-grid">
-
-        <div class="footer-col">
-            <h3>VİLLARCH</h3>
-            <p>Hayalinizdeki villayı birlikte tasarlayalım. Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
-        </div>
-
-        <div class="footer-col">
-            <h4>Hızlı Linkler</h4>
-            <ul>
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="projeler.html">Projelerimiz</a></li>
-                <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Bize Ulaşın</h4>
-            <p>
-                info@villarch.com<br>
-                +90 555 123 45 67<br>
-                Mimarlık Caddesi, No:1, İstanbul
-            </p>
-        </div>
-
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 VİLLARCH. Tüm hakları saklıdır.</p>
-    </div>
-</footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>VİLLARCH</h3>
+                <p>Hayalinizdeki villayı birlikte tasarlayalım. Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı Linkler</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="projeler.html">Projelerimiz</a></li>
+                    <li><a href="hizmetler.html">H

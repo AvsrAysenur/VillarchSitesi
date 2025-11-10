@@ -7,6 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
     // Konsola test mesajı (Tarayıcıda F12 -> Console'da görebilirsiniz)
     console.log("VİLLARCH JavaScript Yüklendi ve Hazır!");
 
+    // --- YENİ: SWIPER SLIDER BAŞLATMA KODU ---
+    // Sadece .hero-slider sınıfına sahip bir eleman varsa çalıştır
+    // (Bu kod sadece ana sayfada çalışır, hata vermez)
+    if (document.querySelector(".hero-slider")) {
+        
+        const swiper = new Swiper('.hero-slider', {
+            // Yönlendirme (Navigasyon) Okları
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            // Sonsuz döngü
+            loop: true,
+            
+            // Kaybolma (Fade) efekti (Resimlerin üst üste gelmesi)
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            
+            // Otomatik oynatma (5 saniyede bir değişme)
+            autoplay: {
+                delay: 5000, // 5000ms = 5 saniye
+                disableOnInteraction: false, // Kullanıcı dokunsa bile durmasın
+            },
+        });
+    }
+
     // --- 1. HEADER SCROLL EFEKTİ KODU ---
     
     // Önce header elemanını seçiyoruz
