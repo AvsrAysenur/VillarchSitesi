@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Göl Kıyısı Evleri - VİLLARCH</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">VİLLARCH</a>
+            <button id="menu-toggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav>
+                <a href="index.html">Ana Sayfa</a>
+                <a href="projeler.html">Projelerimiz</a>
+                <a href="hizmetler.html">Hizmetlerimiz</a>
+                <a href="iletisim.html">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="proje-detay-container">
+            <h1>Göl Kıyısı Evleri</h1>
+            
+           <div class="proje-detay-resim-alani">
+    
+    <div class="proje-detay-resim-alani">
+    
+    <div class="ana-resim-cerceve">
+        <img id="ana-gorsel" class="proje-detay-ana-resim" src="img/GolKiyisiEvleri.jpg" alt="Ana Görsel">
+    </div>
+
+    <div class="galeri-tab-butonlari">
+        <button class="tab-btn active" onclick="tabDegistir(event, 'dis-mekan')">Dış Mekan</button>
+        <button class="tab-btn" onclick="tabDegistir(event, 'ic-mekan')">İç Mekan</button>
+        <button class="tab-btn" onclick="tabDegistir(event, 'kat-plani')">Kat Planı</button>
+    </div>
+
+    <div class="tab-konteynirlari">
+        
+        <div id="dis-mekan" class="tab-icerik active">
+            <img src="img/GolKiyisiEvleri.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="Dış 1">
+            <img src="img/golkiyisievleri2.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="Dış 2">
+            
+        </div>
+
+        <div id="ic-mekan" class="tab-icerik">
+            <img src="img/golkiyisievleriicplan1.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 1">
+            <img src="img/golkiyisiicplan2.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 2">
+            <img src="img/ictasarımev.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 3">
+            <img src="img/golkiyisiicplan4.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 4">
+            <img src="img/golkiyisiicplan6.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 5">
+            <img src="img/golkiyisiyatakod.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 6">
+            <img src="img/golkiyisiyatakod2.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="İç 7">
+            
+        </div>
+
+        <div id="kat-plani" class="tab-icerik">
+            <img src="img/golkiyisievlerikatplani.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="Plan 1">
+            <img src="img/golkiyisievlerikatplani2.jpg" class="kucuk-resim" onclick="resimDegistir(this.src)" alt="Plan 2">
+            
+        </div>
+
+    </div>
+</div>
+
+</div>
+            
+            <div class="proje-detay-aciklama">
+                <h2>Proje Hakkında</h2>
+                <p>
+                    The Lakeside Houses, 126 metrekarelik kompakt ama son derece fonksiyonel yaşam alanı ile doğanın kalbinde lüks bir sığınak sunuyor. 
+                    Geleneksel göl evi mimarisini modern mühendislik çözümleriyle birleştiren bu proje, 14:12 oranındaki dik çatı eğimi sayesinde 
+                    hem estetik bir silüet oluşturuyor hem de iç mekanda yüksek tavan ferahlığı sağlıyor. 2x6 ahşap karkas sistemiyle inşa edilen 
+                    yapı, sürdürülebilir mimarinin en zarif örneklerinden biri olarak tasarlandı.
+                </p>
+                </p>
+                
+                <h3>Proje Özellikleri</h3>
+                <ul>
+                    <li>Yer:Doğanın Kalbi (Lokasyondan Bağımsız Konsept)</li>
+                    <li>**Tasarım Stili:** Modern Göl Evi, Panoramik & Minimalist</li>
+                    <li>**Toplam Yaşam Alanı:** 126 m² (İki Katlı) </li>
+                    <li>**Kat Planı:** Alt Kat (78 m²) + Üst Kat (48 m²)</li>
+                    <li>**Oda Sayısı:** 2-3 Yatak Odası / 2 Tam Banyo</li>
+                    <li>**Tavan Yüksekliği:** Giriş Katı 2.75m / Üst Kat 2.15m</li>
+                    <li>**Mimari Form:** 7.6m Genişlik x 13.8m Derinlik</li>
+                    <li>**Çatı Tasarımı:** 14:12 Dik Eğimli Özel Konstrüksiyon</li>
+                    <li>**Yapı Sistemi:** 2x6 Masif Ahşap Karkas Çerçeve</li>
+                    <li>**Temel Seçenekleri:** Crawlspace (Yükseltilmiş), Radye Temel veya Bodrum Kat</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>VİLLARCH</h3>
+                <p>Hayalinizdeki villayı birlikte tasarlayalım. Modern, klasik veya minimalist; size özel mimari çözümler sunuyoruz.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Hızlı Linkler</h4>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="projeler.html">Projelerimiz</a></li>
+                    <li><a href="hizmetler.html">Hizmetlerimiz</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bize Ulaşın</h4>
+                <p>
+                    info@villarch.com<br>
+                    +90 555 123 45 67<br>
+                    Mimarlık Caddesi, No:1, İstanbul
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 VİLLARCH. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

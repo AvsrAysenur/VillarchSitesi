@@ -114,3 +114,47 @@ document.addEventListener("DOMContentLoaded", () => {
     } // if (filtreButonAlani) sonu
 
 }); // DOMContentLoaded sonu
+// Proje Detay Sayfası Galeri Fonksiyonu
+function resimDegistir(yeniResimYolu) {
+    const anaResim = document.getElementById('ana-gorsel');
+    
+    // Değişim sırasında hafif bir "göz kırpma" efekti
+    anaResim.style.opacity = '0.5';
+    
+    setTimeout(() => {
+        anaResim.src = yeniResimYolu;
+        anaResim.style.opacity = '1';
+    }, 150); // 150 milisaniye sonra resmi değiştir ve tekrar parlat
+}
+// Sekmeler arası geçiş fonksiyonu
+function tabDegistir(evt, kategoriAdi) {
+    // Tüm tab içeriklerini gizle
+    const tabIcerikleri = document.getElementsByClassName("tab-icerik");
+    for (let i = 0; i < tabIcerikleri.length; i++) {
+        tabIcerikleri[i].classList.remove("active");
+    }
+
+    // Tüm butonların 'active' sınıfını kaldır
+    const tabButonlari = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabButonlari.length; i++) {
+        tabButonlari[i].classList.remove("active");
+    }
+
+    // Seçilen tabı göster ve butonu aktif yap
+    document.getElementById(kategoriAdi).classList.add("active");
+    evt.currentTarget.classList.add("active");
+
+    // İsteğe bağlı: Tab değiştiğinde o grubun ilk resmini ana resim yap
+    const ilkResim = document.getElementById(kategoriAdi).getElementsByTagName('img')[0].src;
+    resimDegistir(ilkResim);
+}
+
+// Mevcut resimDegistir fonksiyonunu koruyoruz (Hafif efekt ekledik)
+function resimDegistir(src) {
+    const anaGorsel = document.getElementById('ana-gorsel');
+    anaGorsel.style.opacity = '0.5';
+    setTimeout(() => {
+        anaGorsel.src = src;
+        anaGorsel.style.opacity = '1';
+    }, 150);
+}
